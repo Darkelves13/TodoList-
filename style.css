@@ -1,0 +1,197 @@
+body{
+    background-color: antiquewhite;
+    padding-top: 170px;
+    overflow: hidden;
+}
+
+.wrapper{
+    text-align: center;
+}
+
+.input{
+    background-color: burlywood;
+    position: fixed;
+    padding-top: 5px;
+    /* margin-left: 5px; */
+    top: 0;
+    left: 0;
+    height: 150px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.input>input{
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+
+.input .btn{
+    height: 40px;
+    width: 50px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.complete{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.output{
+    height: 580px;
+    /* min-height: 580px; */
+    /* margin-top: 160px; */
+    margin-left: 5px;
+    overflow-y: auto
+}
+
+.inputValues{
+    display: flex;
+    /* align-items:flex-start; */
+    /* justify-content:flex-start; */
+    padding-top: 20px;
+    font-size: 2rem;
+    gap: 10px;
+}
+
+/* Target only the checkboxes inside the output section */
+.output input[type="checkbox"] {
+    width: 35px;        /* Matches .deleteBtn width */
+    height: 35px;       /* Matches .deleteBtn height */
+    cursor: pointer;    /* Shows the hand icon on hover */
+    
+    /* Important for alignment */
+    vertical-align: middle; 
+    margin-right: 10px; /* Adds space between checkbox and text */
+    margin-left: 20px;
+    accent-color: green;
+}
+
+.deleteBtn{
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+}
+
+.editBtn{
+    height: 40px;
+    width: 50px;
+    font-size: 1rem;
+    font-weight: bolder;
+    background-color: aliceblue;
+    color: darkcyan;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px gray;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.popUpSection {
+    /* Existing */
+    display: none; /* Keep it hidden by default, JS will turn it to 'block' */
+    position: fixed;
+    
+    /* CENTERING MAGIC */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Optional: Style to make it look like a card */
+    background-color:darksalmon;
+    box-shadow: 1px 5px 5px 1px yellowgreen;
+
+    padding: 20px;
+    border: 2px black;
+    border-radius: 50px;
+    z-index: 1001; /* Must be higher than your header (1000) */
+}
+
+.popUpSection>input{
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    border: none;
+    box-shadow: 1px 1px 1px 1px lightblue;
+}
+
+.popUpSection>button{
+    height: 40px;
+    width: 50px;
+    font-size: 1rem;
+    font-weight: bolder;
+    background-color: aliceblue;
+    color: darkcyan;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px gray;
+    cursor: pointer;
+}
+
+/* --- MOBILE RESPONSIVE RULES --- */
+@media screen and (max-width: 600px) {
+    
+    /* 1. Shrink the Header & Body padding */
+    .input {
+        height: 100px; /* Smaller header */
+    }
+    body {
+        padding-top: 110px; /* Adjusted to match the smaller header */
+    }
+
+    /* 2. Fix the Inputs (Search bar & Popup) */
+    /* Change fixed 400px to percentage so it fits any screen */
+    .input > input, 
+    .popUpSection > input {
+        width: 60%; 
+        font-size: 1rem; /* standard size prevents zooming on iPhone */
+    }
+
+    /* 3. Shrink the Task Text */
+    .inputValues {
+        font-size: 1.2rem; /* 2rem is too big for mobile */
+        gap: 5px;
+        align-items: center; /* Ensures buttons line up with smaller text */
+    }
+
+    /* 4. Adjust the Output Container Height */
+    /* Instead of fixed 580px, take up the remaining screen height */
+    .output {
+        height: calc(100vh - 120px); 
+    }
+
+    /* 5. Scale down the Buttons slightly */
+    .deleteBtn, 
+    .editBtn, 
+    .input .btn, 
+    .popUpSection > button {
+        width: 40px;  /* slightly smaller width */
+        height: 35px; /* slightly smaller height */
+        font-size: 0.8rem;
+        margin-left: 5px; /* Reduce spacing between buttons */
+    }
+
+    /* 6. Fix the Checkbox alignment */
+    .output input[type="checkbox"] {
+        width: 25px;
+        height: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    /* 7. Prevent the Popup from overflowing */
+    .popUpSection {
+        width: 85%; /* Fits within the screen edges */
+        padding: 15px;
+        border-radius: 20px; /* Slightly less round to save space */
+    }
+}
