@@ -1,9 +1,3 @@
-Here is a professional description you can use for your GitHub repository. Since you are an M.Sc. Computer Science student, I have structured this to look like a proper developer's `README.md` file, highlighting the technical features (DOM manipulation, event handling) rather than just saying "it's a list."
-
-You can copy and paste the Markdown below directly into a file named **`README.md`** in your repository.
-
----
-
 # 📝 TaskFlow - Vanilla JS To-Do List
 
 A responsive, feature-rich task management application built entirely with **Vanilla JavaScript**, **HTML5**, and **CSS3**. This project demonstrates DOM manipulation, event bubbling, and dynamic UI updates without relying on external frameworks.
